@@ -1,8 +1,10 @@
 package io.jenkins.plugins.coverapi.adapter;
 
 import hudson.ExtensionPoint;
+import hudson.FilePath;
 import hudson.model.Describable;
 import hudson.model.Descriptor;
+import hudson.model.Run;
 import jenkins.model.Jenkins;
 
 import java.io.File;

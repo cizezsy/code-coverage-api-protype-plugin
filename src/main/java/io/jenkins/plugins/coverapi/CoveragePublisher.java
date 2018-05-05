@@ -89,6 +89,7 @@ public class CoveragePublisher extends Recorder implements SimpleBuildStep {
             CoverageReportAdapter adapter = adapterReports.getKey();
             for (File s : adapterReports.getValue()) {
                 File target = new File(s.getName() + ".universal");
+                //TODO Wrong implementation, will fix in future
                 adapter.convert(s, target);
                 targetFiles.add(target);
                 FileUtils.deleteQuietly(s);
