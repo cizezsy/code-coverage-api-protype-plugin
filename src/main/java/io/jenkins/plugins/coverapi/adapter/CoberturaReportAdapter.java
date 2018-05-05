@@ -13,7 +13,7 @@ public class CoberturaReportAdapter extends JavaXMLCoverageReportAdapter {
 
     @Override
     public String getXSL() {
-        return null;
+        return "cobertura-4.0-to-general.xsl";
     }
 
     @Override
@@ -32,5 +32,6 @@ public class CoberturaReportAdapter extends JavaXMLCoverageReportAdapter {
         public CoverturaDescriptor() {
             super(CoberturaReportAdapter.class, "Cobertura");
         }
+
     }
 }
