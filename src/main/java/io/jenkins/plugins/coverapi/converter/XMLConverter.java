@@ -42,7 +42,7 @@ public class XMLConverter {
      * @param source Source xml file
      * @return DOMResult
      */
-    public DOMResult convertToDOMResult(File xsl, File source) {
+    public DOMResult convertToDOMResultWithXSL(File xsl, File source) {
         DOMResult result = new DOMResult();
         convert(xsl, source, result);
         return result;
@@ -55,7 +55,7 @@ public class XMLConverter {
      * @param source Source xml file
      * @return SAXResult
      */
-    public SAXResult convertToSAXResult(File xsl, File source) {
+    public SAXResult convertToSAXResultWithXSL(File xsl, File source) {
         SAXResult result = new SAXResult();
         convert(xsl, source, result);
         return result;

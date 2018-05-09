@@ -4,21 +4,23 @@ import hudson.model.Action;
 import hudson.model.HealthReport;
 import hudson.model.HealthReportingAction;
 import hudson.model.Run;
+import io.jenkins.plugins.coverapi.target.AggregatedCoverageResult;
+import io.jenkins.plugins.coverapi.target.CoverageReport;
+import io.jenkins.plugins.coverapi.target.CoverageResult;
 import jenkins.model.RunAction2;
 import jenkins.tasks.SimpleBuildStep;
 import org.kohsuke.stapler.StaplerProxy;
 
 import javax.annotation.CheckForNull;
-import java.io.File;
 import java.util.Collection;
 import java.util.List;
 
 public class CoverageResultAction implements HealthReportingAction, RunAction2, SimpleBuildStep.LastBuildAction, StaplerProxy {
 
-    private List<File> reports;
+    private AggregatedCoverageResult aggregatedResult;
 
-    public CoverageResultAction(List<File> reports) {
-        this.reports = reports;
+    public CoverageResultAction(List<CoverageReport> reports) {
+        this.aggregatedResult = new AggregatedCoverageResult(reports);
     }
 
     private transient Run<?, ?> owner;
@@ -63,6 +65,6 @@ public class CoverageResultAction implements HealthReportingAction, RunAction2, 
 
     @Override
     public Object getTarget() {
-        return null;
+        return aggregatedResult;
     }
 }
